@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maasai Bites — Authentic Kenyan Fast Food</title>
+  <meta name="description" content="Maasai Bites is a fast-food restaurant serving authentic Kenyan dishes like chapati, samosas, pilau, and smocha. Order fast on WhatsApp." />
+  <meta property="og:title" content="Maasai Bites — Authentic Kenyan Fast Food" />
+  <meta property="og:description" content="Chapati, samosas, pilau, smocha and more. Order on WhatsApp." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%23835a2b'/%3E%3Cpath d='M22 42c5-10 15-10 20 0 2-6 2-12 0-18-5-10-15-10-20 0-2 6-2 12 0 18z' fill='%23fff'/%3E%3Ccircle cx='32' cy='29' r='5' fill='%23835a2b'/%3E%3C/svg%3E" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{
+      --brown:#835a2b;   /* primary */
+      --brown-deep:#5f3f1e;
+      --paper:#ffffff;
+    }
+    /* Subtle Maasai shúkà-inspired diamond pattern */
+    .kanga-bg{
+      background:
+        radial-gradient(ellipse at 25% 25%, rgba(131,90,43,.08) 0 30%, transparent 31%),
+        radial-gradient(ellipse at 75% 75%, rgba(131,90,43,.08) 0 30%, transparent 31%),
+        radial-gradient(ellipse at 75% 25%, rgba(131,90,43,.08) 0 30%, transparent 31%),
+        radial-gradient(ellipse at 25% 75%, rgba(131,90,43,.08) 0 30%, transparent 31%),
+        linear-gradient(45deg, transparent 49%, rgba(131,90,43,.12) 50%, transparent 51%) 0 0/28px 28px;
+    }
+    .brand-font{ font-family: ui-rounded, system-ui, -apple-system, Segoe UI, Roboto, "Inter", sans-serif; }
+    .shadow-soft{ box-shadow: 0 10px 25px rgba(0,0,0,.08); }
+    .ring-brown{ box-shadow: 0 0 0 3px rgba(131,90,43,.15); }
+    .card:hover{ transform: translateY(-3px); }
+    .btn{ transition: transform .08s ease; }
+    .btn:active{ transform: translateY(1px) scale(.99); }
+  </style>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Maasai Bites",
+    "servesCuisine": "Kenyan, Fast Food",
+    "telephone": "+254726844739",
+    "url": "https://example.com/maasaibites",
+    "sameAs": [],
+    "address": { "@type": "PostalAddress", "addressCountry": "KE" }
+  }
+  </script>
+</head>
+<body class="bg-[var(--paper)] text-[var(--brown-deep)] selection:bg-[var(--brown)] selection:text-white">
+
+  <!-- Top bar -->
+ <!-- HEADER -->
+<header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-brown/10">
+  <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+    <!-- Logo -->
+    <div class="flex items-center gap-3">
+      <img src="/assets/images/logo-placeholder.png" alt="Maasai Bites logo"
+           class="w-10 h-10 rounded-full object-cover">
+      <div>
+        <h1 class="brand-font text-xl font-extrabold tracking-wide text-[var(--brown-deep)]">
+          MAASAI BITES
+        </h1>
+        <p class="text-xs text-[var(--brown)]/80">Authentic Kenyan Fast Food</p>
+      </div>
+    </div>
+
+    <!-- Hamburger button (mobile only) -->
+    <button id="menuToggle"
+            class="md:hidden p-2 rounded-md text-[var(--brown-deep)] hover:bg-[var(--brown)]/10 focus:outline-none">
+      <!-- Icon -->
+      <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+           viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+      <!-- Close icon -->
+      <svg id="closeIcon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none"
+           viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex items-center gap-6 text-sm">
+      <a href="index.html" class="hover:text-[var(--brown)]">Home</a>
+      <a href="menu.html" class="hover:text-[var(--brown)]">Menu</a>
+      <a href="https://wa.me/254726844739"
+         class="inline-flex items-center gap-2 bg-[var(--brown)] text-white px-4 py-2 rounded-full btn shadow-soft">
+        Order on WhatsApp
+      </a>
+    </nav>
+  </div>
+
+  <!-- Mobile Dropdown Navigation -->
+  <nav id="mobileNav"
+       class="hidden md:hidden flex-col bg-white border-t border-[var(--brown)]/10 shadow-inner">
+    <a href="index.html" class="block px-6 py-3 text-[var(--brown-deep)] hover:bg-[var(--brown)]/10">Home</a>
+    <a href="menu.html" class="block px-6 py-3 text-[var(--brown-deep)] hover:bg-[var(--brown)]/10">Menu</a>
+    <a href="https://wa.me/254726844739"
+       class="block px-6 py-3 bg-[var(--brown)] text-white text-center">Order on WhatsApp</a>
+  </nav>
+</header>
+
+
+  <!-- HERO -->
+  <section class="kanga-bg">
+    <div class="max-w-6xl mx-auto px-4 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <span class="text-xs tracking-widest text-[var(--brown)] uppercase font-semibold">Taste the Tradition</span>
+        <h2 class="mt-2 text-4xl md:text-5xl font-extrabold brand-font leading-tight text-[var(--brown-deep)]">
+          Real Kenyan Flavors. <span class="text-[var(--brown)]">Fast & Fresh.</span>
+        </h2>
+        <p class="mt-4 text-[15px] text-[var(--brown-deep)]/80">
+          From <strong>chapati</strong> & <strong>samosas</strong> to <strong>pilau</strong> and the street-legend <strong>smocha</strong> —
+          Maasai Bites serves comforting Kenyan classics, done right.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="menu.html" class="px-5 py-3 rounded-full bg-[var(--brown)] text-white btn shadow-soft">Explore Menu</a>
+          <a href="https://wa.me/254726844739?text=Hi%20Maasai%20Bites!%20I'd%20like%20to%20order%20from%20your%20menu."
+             class="px-5 py-3 rounded-full border border-[var(--brown)] text-[var(--brown)] btn">Order on WhatsApp</a>
+        </div>
+        <p class="mt-3 text-sm text-[var(--brown-deep)]/70">Call/WhatsApp: <b>+254 726 844739</b></p>
+      </div>
+
+      <!-- Hero image collage (placeholders) -->
+      <div class="grid grid-cols-3 gap-3">
+        <div class="col-span-2 rounded-2xl overflow-hidden shadow-soft">
+          <img src="assets\images\chapati.jpeg" alt="Pilau & beef" class="w-full h-56 md:h-72 object-cover">
+        </div>
+        <div class="rounded-2xl overflow-hidden shadow-soft">
+          <img src="assets\images\pilau2.jpeg" alt="Samosas" class="w-full h-56 md:h-72 object-cover">
+        </div>
+        <div class="rounded-2xl overflow-hidden shadow-soft">
+          <img src="assets\images\undefined (2).jpeg" alt="Chapati" class="w-full h-40 object-cover">
+        </div>
+        <div class="col-span-2 rounded-2xl overflow-hidden shadow-soft">
+          <img src="assets\images\undefined (8).jpeg" alt="Grilled chicken & chips" class="w-full h-40 object-cover">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HIGHLIGHTS / MENU -->
+  <section id="menu" class="py-14 md:py-20">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex items-end justify-between gap-4">
+        <div>
+          <h3 class="text-2xl md:text-3xl font-extrabold brand-font text-[var(--brown-deep)]">Signature Dishes</h3>
+          <p class="text-[var(--brown-deep)]/70 mt-1">Tap “Order” to send your request on WhatsApp instantly.</p>
+        </div>
+        <div class="hidden md:block text-sm italic text-[var(--brown)]/80">Traditional Kenyan feel • Brown + White</div>
+      </div>
+
+      <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Card component (repeat) -->
+        <div class="card bg-white rounded-2xl shadow-soft overflow-hidden transition">
+          <img class="h-44 w-full object-cover" src="assets\images\chapati.jpeg" alt="Chapati & Beans">
+          <div class="p-5">
+            <div class="flex items-center justify-between">
+              <h4 class="font-bold text-[var(--brown-deep)]">Chapati & Beans</h4>
+              <span class="text-[var(--brown)] font-semibold">KES 200</span>
+            </div>
+            <p class="text-sm mt-1 text-[var(--brown-deep)]/70">Soft chapati with flavourful bean stew.</p>
+            <div class="mt-4 flex gap-2">
+              <button class="add btn px-4 py-2 rounded-full bg-[var(--brown)] text-white" data-item="Chapati & Beans">Add</button>
+              <a class="btn px-4 py-2 rounded-full border border-[var(--brown)] text-[var(--brown)]"
+                 href="https://wa.me/254726844739?text=Order:%20Chapati%20%26%20Beans%20(KES%20200)">Order</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card bg-white rounded-2xl shadow-soft overflow-hidden transition">
+          <img class="h-44 w-full object-cover" src="assets\images\samosa.jpeg" alt="Samosas">
+          <div class="p-5">
+            <div class="flex items-center justify-between">
+              <h4 class="font-bold text-[var(--brown-deep)]">Samosas (3 pcs)</h4>
+              <span class="text-[var(--brown)] font-semibold">KES 150</span>
+            </div>
+            <p class="text-sm mt-1 text-[var(--brown-deep)]/70">Crispy, spiced Kenyan samosas.</p>
+            <div class="mt-4 flex gap-2">
+              <button class="add btn px-4 py-2 rounded-full bg-[var(--brown)] text-white" data-item="Samosas (3)">Add</button>
+              <a class="btn px-4 py-2 rounded-full border border-[var(--brown)] text-[var(--brown)]"
+                 href="https://wa.me/254726844739?text=Order:%20Samosas%20(3%20pcs)%20(KES%20150)">Order</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card bg-white rounded-2xl shadow-soft overflow-hidden transition">
+          <img class="h-44 w-full object-cover" src="assets\images\pilau.jpeg" alt="Pilau Beef">
+          <div class="p-5">
+            <div class="flex items-center justify-between">
+              <h4 class="font-bold text-[var(--brown-deep)]">Pilau Beef</h4>
+              <span class="text-[var(--brown)] font-semibold">KES 350</span>
+            </div>
+            <p class="text-sm mt-1 text-[var(--brown-deep)]/70">Aromatic rice with tender beef.</p>
+            <div class="mt-4 flex gap-2">
+              <button class="add btn px-4 py-2 rounded-full bg-[var(--brown)] text-white" data-item="Pilau Beef">Add</button>
+              <a class="btn px-4 py-2 rounded-full border border-[var(--brown)] text-[var(--brown)]"
+                 href="https://wa.me/254726844739?text=Order:%20Pilau%20Beef%20(KES%20350)">Order</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card bg-white rounded-2xl shadow-soft overflow-hidden transition">
+          <img class="h-44 w-full object-cover" src="assets\images\IG_ kius_kitchen.jpeg" alt="Smocha">
+          <div class="p-5">
+            <div class="flex items-center justify-between">
+              <h4 class="font-bold text-[var(--brown-deep)]">chicken</h4>
+              <span class="text-[var(--brown)] font-semibold">KES 150</span>
+            </div>
+            <p class="text-sm mt-1 text-[var(--brown-deep)]/70">Kuku.</p>
+            <div class="mt-4 flex gap-2">
+              <button class="add btn px-4 py-2 rounded-full bg-[var(--brown)] text-white" data-item="Smocha">Add</button>
+              <a class="btn px-4 py-2 rounded-full border border-[var(--brown)] text-[var(--brown)]"
+                 href="https://wa.me/254726844739?text=Order:%20Smocha%20(KES%20150)">Order</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card bg-white rounded-2xl shadow-soft overflow-hidden transition">
+          <img class="h-44 w-full object-cover" src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=1200&auto=format&fit=crop" alt="Chips Masala">
+          <div class="p-5">
+            <div class="flex items-center justify-between">
+              <h4 class="font-bold text-[var(--brown-deep)]">burger</h4>
+              <span class="text-[var(--brown)] font-semibold">KES 250</span>
+            </div>
+            <p class="text-sm mt-1 text-[var(--brown-deep)]/70">Spicy, saucy Kenyan-style fries.</p>
+            <div class="mt-4 flex gap-2">
+              <button class="add btn px-4 py-2 rounded-full bg-[var(--brown)] text-white" data-item="Chips Masala">Add</button>
+              <a class="btn px-4 py-2 rounded-full border border-[var(--brown)] text-[var(--brown)]"
+                 href="https://wa.me/254726844739?text=Order:%20Chips%20Masala%20(KES%20250)">Order</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card bg-white rounded-2xl shadow-soft overflow-hidden transition">
+          <img class="h-44 w-full object-cover" src="assets\images\inaslap.jpeg" alt="Grilled Chicken & Chips">
+          <div class="p-5">
+            <div class="flex items-center justify-between">
+              <h4 class="font-bold text-[var(--brown-deep)]">fish</h4>
+              <span class="text-[var(--brown)] font-semibold">KES 550</span>
+            </div>
+            <p class="text-sm mt-1 text-[var(--brown-deep)]/70">fish.</p>
+            <div class="mt-4 flex gap-2">
+              <button class="add btn px-4 py-2 rounded-full bg-[var(--brown)] text-white" data-item="Grilled Chicken & Chips">Add</button>
+              <a class="btn px-4 py-2 rounded-full border border-[var(--brown)] text-[var(--brown)]"
+                 href="https://wa.me/254726844739?text=Order:%20Grilled%20Chicken%20%26%20Chips%20(KES%20550)">Order</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick CTA -->
+      <div id="order" class="mt-10 p-5 md:p-6 bg-[var(--brown)] text-white rounded-2xl shadow-soft flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div>
+          <h4 class="text-xl font-bold">Ready to order?</h4>
+          <p class="text-white/90 text-sm">Send your tray or ask for today’s specials on WhatsApp.</p>
+        </div>
+        <div class="flex gap-3">
+          <a href="#" id="shareTray" class="px-4 py-2 rounded-full bg-white text-[var(--brown)] font-semibold btn">Send My Tray</a>
+          <a href="https://wa.me/254726844739?text=Hi%20Maasai%20Bites!%20Kindly%20share%20today%E2%80%99s%20specials."
+             class="px-4 py-2 rounded-full border-2 border-white text-white btn">Ask Specials</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
+      <div class="rounded-2xl overflow-hidden shadow-soft">
+        <img src="https://images.unsplash.com/photo-1548943487-a2e4e43b4853?q=80&w=1200&auto=format&fit=crop" class="w-full h-72 md:h-96 object-cover" alt="Traditional Kenyan meal">
+      </div>
+      <div>
+        <h3 class="text-2xl md:text-3xl font-extrabold brand-font text-[var(--brown-deep)]">About Maasai Bites</h3>
+        <p class="mt-3 text-[var(--brown-deep)]/80 leading-relaxed">
+          We’re a Kenyan fast-food kitchen bringing home flavors to the fast lane.
+          Whether it’s a quick <em>smocha</em> on the move or a hearty plate of <em>pilau</em>,
+          we cook with love and serve with speed.
+        </p>
+        <ul class="mt-4 grid grid-cols-2 gap-3 text-sm">
+          <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-[var(--brown)]"></span> Fresh, local ingredients</li>
+          <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-[var(--brown)]"></span> Swift WhatsApp ordering</li>
+          <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-[var(--brown)]"></span> Traditional Kenyan taste</li>
+          <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-[var(--brown)]"></span> Friendly prices</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-brown/10">
+    <div class="max-w-6xl mx-auto px-4 py-8 grid md:grid-cols-3 gap-6 text-sm">
+      <div>
+        <div class="font-extrabold brand-font text-[var(--brown-deep)]">MAASAI BITES</div>
+        <p class="mt-2 text-[var(--brown-deep)]/70">Authentic Kenyan fast food. Brown & White. Traditional vibe.</p>
+      </div>
+      <div>
+        <div class="font-semibold text-[var(--brown)]">Hours</div>
+        <p class="mt-2 text-[var(--brown-deep)]/70">Mon–Sun: 9:00am – 10:00pm</p>
+      </div>
+      <div>
+        <div class="font-semibold text-[var(--brown)]">Contact</div>
+        <p class="mt-2 text-[var(--brown-deep)]/70">Phone/WhatsApp: <a class="underline" href="https://wa.me/254726844739">+254 726 844739</a></p>
+      </div>
+    </div>
+    <div class="text-center text-xs py-4 bg-[var(--brown)] text-white/90">© <span id="year"></span> Maasai Bites. All rights reserved.</div>
+  </footer>
+
+  <!-- Floating tray button -->
+  <a id="trayBtn" href="#order"
+     class="fixed bottom-5 right-5 z-40 px-4 py-3 rounded-full bg-[var(--brown)] text-white shadow-lg btn flex items-center gap-2">
+     <span>Tray</span>
+     <span id="trayCount" class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-white text-[var(--brown)] font-bold">0</span>
+  </a>
+
+  <script>
+    // Simple tray using localStorage
+    const KEY = "maasai_bites_tray";
+    const trayCountEl = document.getElementById("trayCount");
+    const shareBtn = document.getElementById("shareTray");
+
+    function getTray(){ return JSON.parse(localStorage.getItem(KEY) || "[]"); }
+    function setTray(arr){ localStorage.setItem(KEY, JSON.stringify(arr)); updateCount(); }
+    function updateCount(){ trayCountEl.textContent = getTray().length; }
+    updateCount();
+
+    document.querySelectorAll(".add").forEach(btn=>{
+      btn.addEventListener("click", ()=>{
+        const item = btn.dataset.item;
+        const tray = getTray();
+        tray.push(item);
+        setTray(tray);
+        btn.textContent = "Added ✓";
+        setTimeout(()=> btn.textContent = "Add", 900);
+      });
+    });
+
+    shareBtn.addEventListener("click", (e)=>{
+      e.preventDefault();
+      const tray = getTray();
+      if(!tray.length){ alert("Your tray is empty. Add a dish first."); return; }
+      const text = encodeURIComponent("Order (Tray): " + tray.join(", "));
+      window.location.href = "https://wa.me/254726844739?text=" + text;
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+  <script>
+  const menuToggle = document.getElementById("menuToggle");
+  const mobileNav = document.getElementById("mobileNav");
+  const menuIcon = document.getElementById("menuIcon");
+  const closeIcon = document.getElementById("closeIcon");
+
+  menuToggle.addEventListener("click", () => {
+    const isOpen = !mobileNav.classList.contains("hidden");
+    mobileNav.classList.toggle("hidden");
+    menuIcon.classList.toggle("hidden");
+    closeIcon.classList.toggle("hidden");
+  });
+
+  // Optional: close menu when a link is clicked
+  document.querySelectorAll("#mobileNav a").forEach(link => {
+    link.addEventListener("click", () => {
+      mobileNav.classList.add("hidden");
+      menuIcon.classList.remove("hidden");
+      closeIcon.classList.add("hidden");
+    });
+  });
+</script>
+
+</body>
+</html>
